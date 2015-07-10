@@ -1,0 +1,4 @@
+IncreAction=net.vicp.lylab.lyserver.action.IncAction
+DecreAction=net.vicp.lylab.lyserver.action.DecAction
+
+StopAction=net.vicp.lylab.lyserver.action.manager.StopAction

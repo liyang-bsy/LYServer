@@ -1,0 +1,11 @@
+$init=init.txt
+$LYTimer=timer.txt
+$protocol=protocol.txt
+$action=action.txt
+
+debug=0
+MaxQueue=2000
+MaxThread=100
+
+host=127.0.0.1
+port=52041
