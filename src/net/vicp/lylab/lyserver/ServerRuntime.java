@@ -1,6 +1,8 @@
 package net.vicp.lylab.lyserver;
 
+import java.io.Closeable;
 import java.io.File;
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.text.DecimalFormat;
 
@@ -16,7 +18,7 @@ import net.vicp.lylab.utils.internet.protocol.ProtocolUtils;
 import net.vicp.lylab.utils.tq.LYTaskQueue;
 import net.vicp.lylab.utils.tq.LoneWolf;
 
-public class ServerBegin extends LoneWolf {
+public class ServerRuntime extends LoneWolf implements Closeable {
 	private static final long serialVersionUID = -6694416303489621634L;
 	
 	public static boolean running = true;
@@ -28,8 +30,10 @@ public class ServerBegin extends LoneWolf {
 	};
 	
 	protected static LYTaskQueue tq;
-	public static Protocol protocol = new LYLabProtocol();
-	public static ServerSocket ss;
+	protected static ServerSocket ss;
+	protected static Protocol protocol = new LYLabProtocol();
+	
+	public static ServerRuntime serverRuntime;
 	
 	public static void main(String[] arg) throws Exception
 	{
@@ -44,7 +48,8 @@ public class ServerBegin extends LoneWolf {
 		tq.setMaxQueue(CoreDef.config.getInteger("MaxQueue"));
 		tq.setMaxThread(CoreDef.config.getInteger("MaxThread"));
 		
-		new ServerBegin().begin("Server");
+		serverRuntime = new ServerRuntime();
+		serverRuntime.begin("Server");
 		
 		for(int j = 0;running && j<Integer.MAX_VALUE;j+=1)
 		{
@@ -63,12 +68,17 @@ public class ServerBegin extends LoneWolf {
 			ss = new ServerSocket(port);
 			while (running) {
 				tq.addTask(new DoActionLong(ss
-					, protocol.encode(new SimpleHeartBeat()).toBytes()));
+					, protocol.encode(new SimpleHeartBeat())));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		GlobalInitializer.destroyInstance();
+	}
+
+	@Override
+	public void close() throws IOException {
+		ss.close();
 	}
 	
 }
