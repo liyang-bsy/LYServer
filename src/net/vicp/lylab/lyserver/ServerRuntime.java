@@ -26,9 +26,9 @@ public class ServerRuntime extends LoneWolf implements Closeable {
 		new AtomicLong(),
 		new AtomicLong(),
 	};
-	
-	protected static LYTaskQueue tq;
+
 	protected static ServerSocket ss;
+	protected static LYTaskQueue tq;
 	
 	public static ServerRuntime serverRuntime;
 	
