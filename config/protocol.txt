@@ -1,1 +1,2 @@
 LYLab=net.vicp.lylab.utils.internet.impl.LYLabProtocol
+JavaObj=net.vicp.lylab.utils.internet.impl.JavaObjProtocol

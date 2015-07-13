@@ -7,12 +7,11 @@ import java.net.ServerSocket;
 import java.text.DecimalFormat;
 
 import net.vicp.lylab.core.CoreDef;
-import net.vicp.lylab.server.GlobalInitializer;
+import net.vicp.lylab.core.GlobalInitializer;
 import net.vicp.lylab.server.aop.DoActionLong;
 import net.vicp.lylab.utils.atomic.AtomicLong;
 import net.vicp.lylab.utils.config.TreeConfig;
 import net.vicp.lylab.utils.internet.impl.SimpleHeartBeat;
-import net.vicp.lylab.utils.internet.protocol.ProtocolUtils;
 import net.vicp.lylab.utils.tq.LYTaskQueue;
 import net.vicp.lylab.utils.tq.LoneWolf;
 
@@ -35,7 +34,6 @@ public class ServerRuntime extends LoneWolf implements Closeable {
 	public static void main(String[] arg) throws Exception
 	{
 		CoreDef.config = new TreeConfig(CoreDef.rootPath + File.separator + "config" + File.separator + "config.txt");
-		ProtocolUtils.setConfig(CoreDef.config.getConfig("protocol"));
 		DoActionLong.setConfig(CoreDef.config.getConfig("action"));
 		GlobalInitializer.createInstance(CoreDef.config.getConfig("init"), (TreeConfig) CoreDef.config);
 		

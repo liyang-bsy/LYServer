@@ -1,6 +1,6 @@
 $init=init.txt
 $LYTimer=timer.txt
-$protocol=protocol.txt
+$ProtocolUtils=protocol.txt
 $action=action.txt
 
 debug=0
