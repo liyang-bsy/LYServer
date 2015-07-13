@@ -38,7 +38,6 @@ public class ServerRuntime extends LoneWolf implements Closeable {
 		GlobalInitializer.createInstance(CoreDef.config.getConfig("init"), (TreeConfig) CoreDef.config);
 		
 		tq = (LYTaskQueue) GlobalInitializer.get("LYTaskQueue");
-		tq.useWatchDog(true);
 		tq.setMaxQueue(CoreDef.config.getInteger("MaxQueue"));
 		tq.setMaxThread(CoreDef.config.getInteger("MaxThread"));
 		
