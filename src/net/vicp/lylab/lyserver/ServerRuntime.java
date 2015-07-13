@@ -7,12 +7,10 @@ import java.net.ServerSocket;
 import java.text.DecimalFormat;
 
 import net.vicp.lylab.core.CoreDef;
-import net.vicp.lylab.core.interfaces.Protocol;
 import net.vicp.lylab.server.GlobalInitializer;
 import net.vicp.lylab.server.aop.DoActionLong;
 import net.vicp.lylab.utils.atomic.AtomicLong;
 import net.vicp.lylab.utils.config.TreeConfig;
-import net.vicp.lylab.utils.internet.impl.LYLabProtocol;
 import net.vicp.lylab.utils.internet.impl.SimpleHeartBeat;
 import net.vicp.lylab.utils.internet.protocol.ProtocolUtils;
 import net.vicp.lylab.utils.tq.LYTaskQueue;
@@ -31,14 +29,12 @@ public class ServerRuntime extends LoneWolf implements Closeable {
 	
 	protected static LYTaskQueue tq;
 	protected static ServerSocket ss;
-	protected static Protocol protocol = new LYLabProtocol();
 	
 	public static ServerRuntime serverRuntime;
 	
 	public static void main(String[] arg) throws Exception
 	{
 		CoreDef.config = new TreeConfig(CoreDef.rootPath + File.separator + "config" + File.separator + "config.txt");
-//		LYTimer.setConfig(CoreDef.config.getConfig("timer"));
 		ProtocolUtils.setConfig(CoreDef.config.getConfig("protocol"));
 		DoActionLong.setConfig(CoreDef.config.getConfig("action"));
 		GlobalInitializer.createInstance(CoreDef.config.getConfig("init"), (TreeConfig) CoreDef.config);
@@ -68,7 +64,7 @@ public class ServerRuntime extends LoneWolf implements Closeable {
 			ss = new ServerSocket(port);
 			while (running) {
 				tq.addTask(new DoActionLong(ss
-					, protocol.encode(new SimpleHeartBeat())));
+					, new SimpleHeartBeat()));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
