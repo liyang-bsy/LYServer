@@ -46,13 +46,24 @@ public class ServerRuntime extends LoneWolf implements Closeable {
 		
 		serverRuntime = new ServerRuntime();
 		serverRuntime.begin("Server");
-		
-		for(int j = 0;running && j<Integer.MAX_VALUE;j+=1)
+
+		//重算hub
+		Integer recalcTimeInteger = 0;
+		boolean recalc = true;
+
+		for(int j = 0;j<Integer.MAX_VALUE;j+=1)
 		{
-			access[0].set(0L);
-			access[1].set(0L);
+			totalRequestCount.getAndAdd(access[0].getAndSet(0L));
+			totalRequestCount.getAndAdd(access[1].getAndSet(0L));
 			Thread.sleep(1*1000);
-			System.out.println("second:" + j + "\t\ttotal:" + totalRequestCount.get() + "\t\taverage:" + new DecimalFormat("0.00").format(1.0*totalRequestCount.get()/(j)));
+			if(recalc && j > 8)
+			{
+				recalcTimeInteger = j;
+				recalc = false;
+				totalRequestCount.set(0L);
+				System.out.println("recalc");
+			}
+			System.out.println("second:" + j + "\t\ttotal:" + totalRequestCount.get() + "\t\taverage:" + new DecimalFormat("0.00").format(1.0*totalRequestCount.get()/(j-recalcTimeInteger)));
 			System.out.println("L0:" + access[0].get() + "\tL1:" + access[1].get());
 		}
 	}
