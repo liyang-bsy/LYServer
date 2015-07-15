@@ -1,5 +1,6 @@
 $init=init.txt
-$LYTimer=timer.txt
+$LYTimer=lytimer.txt
+$LYCache=lycache.txt
 $ProtocolUtils=protocol.txt
 $action=action.txt
 
