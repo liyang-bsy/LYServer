@@ -3,3 +3,4 @@ LYTimer=net.vicp.lylab.utils.timer.LYTimer
 LYCache=net.vicp.lylab.utils.cache.LYCache
 #TimeoutController=net.vicp.lylab.utils.controller.TimeoutController
 ProtocolUtils=net.vicp.lylab.utils.internet.protocol.ProtocolUtils
+AopInitializer=net.vicp.lylab.server.aop.AopInitializer

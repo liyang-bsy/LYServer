@@ -2,6 +2,7 @@ $init=init.txt
 $LYTimer=lytimer.txt
 $LYCache=lycache.txt
 $ProtocolUtils=protocol.txt
+$AopInitializer=filters.txt
 $action=action.txt
 
 debug=0
