@@ -8,10 +8,11 @@ import java.text.DecimalFormat;
 
 import net.vicp.lylab.core.CoreDef;
 import net.vicp.lylab.core.GlobalInitializer;
-import net.vicp.lylab.server.aop.DoActionLong;
+import net.vicp.lylab.core.model.SimpleHeartBeat;
+import net.vicp.lylab.server.aop.Aop;
+import net.vicp.lylab.utils.Config;
 import net.vicp.lylab.utils.atomic.AtomicLong;
-import net.vicp.lylab.utils.config.TreeConfig;
-import net.vicp.lylab.utils.internet.impl.SimpleHeartBeat;
+import net.vicp.lylab.utils.internet.ToClientLongSocket;
 import net.vicp.lylab.utils.tq.LYTaskQueue;
 import net.vicp.lylab.utils.tq.LoneWolf;
 
@@ -33,9 +34,9 @@ public class ServerRuntime extends LoneWolf implements Closeable {
 	
 	public static void main(String[] arg) throws Exception
 	{
-		CoreDef.config = new TreeConfig(CoreDef.rootPath + File.separator + "config" + File.separator + "config.txt");
-		DoActionLong.setConfig(CoreDef.config.getConfig("action"));
-		GlobalInitializer.createInstance(CoreDef.config.getConfig("init"), (TreeConfig) CoreDef.config);
+		CoreDef.config = new Config(CoreDef.rootPath + File.separator + "config" + File.separator + "config.txt");
+		Aop.setConfig(CoreDef.config.getConfig("action"));
+		GlobalInitializer.createInstance(CoreDef.config.getConfig("init"), CoreDef.config);
 		
 		tq = (LYTaskQueue) GlobalInitializer.get("LYTaskQueue");
 		tq.setMaxQueue(CoreDef.config.getInteger("MaxQueue"));
@@ -71,7 +72,7 @@ public class ServerRuntime extends LoneWolf implements Closeable {
 			int port = CoreDef.config.getInteger("port");
 			ss = new ServerSocket(port);
 			while (running) {
-				tq.addTask(new DoActionLong(ss
+				tq.addTask(new ToClientLongSocket(ss
 					, new SimpleHeartBeat()));
 			}
 		} catch (Exception e) {
