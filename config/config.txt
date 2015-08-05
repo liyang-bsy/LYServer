@@ -1,4 +1,4 @@
-$init=init.txt
+$GlobalInitializer=init.txt
 $LYTimer=lytimer.txt
 $LYCache=lycache.txt
 $ProtocolUtils=protocol.txt

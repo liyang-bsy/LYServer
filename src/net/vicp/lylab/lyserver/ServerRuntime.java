@@ -35,8 +35,8 @@ public class ServerRuntime extends LoneWolf implements Closeable {
 	public static void main(String[] arg) throws Exception
 	{
 		CoreDef.config = new Config(CoreDef.rootPath + File.separator + "config" + File.separator + "config.txt");
-		Aop.setConfig(CoreDef.config.getConfig("action"));
-		GlobalInitializer.createInstance(CoreDef.config.getConfig("init"), CoreDef.config);
+//		Aop.setConfig(CoreDef.config.getConfig("action"));
+		GlobalInitializer.createInstance();
 		
 		tq = (LYTaskQueue) GlobalInitializer.get("LYTaskQueue");
 		tq.setMaxQueue(CoreDef.config.getInteger("MaxQueue"));

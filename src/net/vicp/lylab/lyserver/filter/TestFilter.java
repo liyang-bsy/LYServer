@@ -14,4 +14,16 @@ public class TestFilter extends NonCloneableBaseObject implements Filter {
 		return null;
 	}
 
+	@Override
+	public void initialize() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void close() throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
