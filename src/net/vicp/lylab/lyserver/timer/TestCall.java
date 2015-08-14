@@ -8,7 +8,10 @@ public class TestCall extends TimerJob {
 
 	@Override
 	public void exec() {
-		System.out.println("------------start!!-----------");
+		log.info("------------start!!-----------");
+		log.warn("I'm timer, I got a warning");
+		log.error("I'm timer, I got an error");
+		log.fatal("I'm timer, I got a big problem");
 	}
 
 	@Override
