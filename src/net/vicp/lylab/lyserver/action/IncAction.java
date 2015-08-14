@@ -1,13 +1,11 @@
 package net.vicp.lylab.lyserver.action;
 
 import net.vicp.lylab.core.BaseAction;
-import net.vicp.lylab.lyserver.ServerRuntime;
 
 public class IncAction extends BaseAction {
 
 	@Override
 	public void exec() {
-		ServerRuntime.access[0].incrementAndGet();
 		do {
 			Integer i = (Integer) getRequest().getBody().get("int");
 			if (i == null) {

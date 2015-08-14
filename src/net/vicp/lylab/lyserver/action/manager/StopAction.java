@@ -8,8 +8,7 @@ public class StopAction extends BaseAction {
 	@Override
 	public void exec() {
 		System.out.println("host:" + clientSocket.getInetAddress().getHostAddress() + "发来终止请求");
-		ServerRuntime.running = false;
-		ServerRuntime.serverRuntime.callStop();
+		ServerRuntime.close();
 		response.success();
 	}
 
