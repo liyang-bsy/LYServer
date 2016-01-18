@@ -1,20 +1,23 @@
 [TREE]
-debug=0
-server=这是一台服务器
+!debug=0
+server=LYServer
 
-$GlobalInitializer=init.txt
-$LYTimer=lytimer.txt
-$LYCache=lycache.txt
-$ProtocolUtils=protocol.txt
-$Filters=filters.txt
+$Singleton=init.txt
+
 $Aop=action.txt
 
-MaxQueue=2000
-MaxThread=100
-thread=5
+*LYLabProtocol=net.vicp.lylab.utils.internet.impl.LYLabProtocol
 
-host=127.0.0.1
-port=56453
-
-*protocol=net.vicp.lylab.utils.internet.impl.LYLabProtocol
+*protocol=&LYLabProtocol
 *heartBeat=net.vicp.lylab.core.model.SimpleHeartBeat
+
+[]protocols=&LYLabProtocol
+*ProtocolUtils=net.vicp.lylab.utils.internet.protocol.ProtocolUtils
+^rawProtocols=&protocols
+
+port=1234
+
+ipWhiteList=127.0.0.1
+
+BaiduServerUrl:0=http://www.baidu.com/
+BaiduServerUrl:1=http://www.baidu.com/

@@ -1,3 +1,0 @@
-memoryLimitation=6442450944
-expireTime=259200000
-threshold=0.9
