@@ -13,7 +13,7 @@ public class DecAction extends BaseAction {
 				response.setMessage("数字不存在");
 				break;
 			}
-			response.getBody().put("int", i--);
+			response.getBody().put("int", i-1);
 		response.success(); } while (false);
 	}
 

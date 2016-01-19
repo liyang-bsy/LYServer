@@ -1,1 +1,4 @@
 CheckRuntimeAction=net.vicp.lylab.lyserver.action.manager.CheckRuntimeAction
+
+IncAction=net.vicp.lylab.lyserver.action.IncAction
+DecAction=net.vicp.lylab.lyserver.action.DecAction
