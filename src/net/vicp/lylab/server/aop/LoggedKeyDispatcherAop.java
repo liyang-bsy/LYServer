@@ -76,6 +76,7 @@ public class LoggedKeyDispatcherAop extends SimpleKeyDispatcherAop {
 			log.error(Utils.getStringFromException(e));
 		}
 		// to logger
+		System.out.println("Access key:" + key  + "\nBefore:" + request + "\nAfter:" + response);
 		((Logger) CoreDef.config.getConfig("Singleton").getObject("Logger")).appendLine(
 				"Access key:" + key  + "\nBefore:" + request + "\nAfter:" + response);
 		return protocol.encode(response);
