@@ -1,4 +1,4 @@
-package net.vicp.lylab.lyserver.aop;
+package net.vicp.lylab.server.aop;
 
 import java.net.Socket;
 
@@ -7,13 +7,13 @@ import org.apache.commons.lang3.StringUtils;
 import net.vicp.lylab.core.BaseAction;
 import net.vicp.lylab.core.CoreDef;
 import net.vicp.lylab.core.model.Message;
-import net.vicp.lylab.lyserver.utils.Logger;
 import net.vicp.lylab.server.aop.SimpleKeyDispatcherAop;
 import net.vicp.lylab.server.filter.Filter;
+import net.vicp.lylab.server.utils.Logger;
 import net.vicp.lylab.utils.Utils;
 import net.vicp.lylab.utils.internet.HeartBeat;
 
-public class AuthAop extends SimpleKeyDispatcherAop {
+public class LoggedKeyDispatcherAop extends SimpleKeyDispatcherAop {
 
 	@Override
 	public byte[] doAction(Socket client, byte[] requestByte, int offset) {

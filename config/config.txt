@@ -6,6 +6,7 @@ $Singleton=init.txt
 
 $Aop=action.txt
 
+#---------------------protocol defines---------------------
 *LYLabProtocol=net.vicp.lylab.utils.internet.impl.LYLabProtocol
 
 *protocol=&LYLabProtocol
@@ -14,10 +15,17 @@ $Aop=action.txt
 []protocols=&LYLabProtocol
 *ProtocolUtils=net.vicp.lylab.utils.internet.protocol.ProtocolUtils
 ^rawProtocols=&protocols
+#---------------------protocol defines---------------------
 
-port=1234
+#--------------server port
+port=2011
 
 ipWhiteList=127.0.0.1
 
+#--------------rpc server info
+rpcHost=127.0.0.1
+rpcPort=2001
+
+#--------------external url
 BaiduServerUrl:0=http://www.baidu.com/
 BaiduServerUrl:1=http://www.baidu.com/

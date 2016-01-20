@@ -1,13 +1,12 @@
-package net.vicp.lylab.lyserver;
+package net.vicp.lylab.server;
 
 import java.io.File;
 
 import net.vicp.lylab.core.CoreDef;
-import net.vicp.lylab.utils.Config;
 
 public class ServerRuntime {
 	public static void main(String[] arg) {
-		CoreDef.config = new Config(CoreDef.rootPath + File.separator + "config" + File.separator + "config.txt");
+		CoreDef.config.reload(CoreDef.rootPath + File.separator + "config" + File.separator + "config.txt");
 	}
 	
 	public static void close() {
