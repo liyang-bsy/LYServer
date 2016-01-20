@@ -9,12 +9,12 @@ public class IncAction extends BaseAction {
 		do {
 			Integer i = (Integer) getRequest().getBody().get("int");
 			if (i == null) {
-				response.setCode(-2);
-				response.setMessage("数字不存在");
+				getResponse().setCode(-2);
+				getResponse().setMessage("数字不存在");
 				break;
 			}
-			response.getBody().put("int", i+1);
-		response.success(); } while (false);
+			getResponse().getBody().put("int", i+1);
+		getResponse().success(); } while (false);
 	}
 
 }

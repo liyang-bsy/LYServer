@@ -11,8 +11,8 @@ public class CheckRuntimeAction extends BaseAction {
 	public void exec() {
 		try {
 			do {
-				response.getBody().put("当前时间", Utils.format(new Date(), "yyyy-MM-dd HH-mm:ss"));
-				response.success();
+				getResponse().getBody().put("当前时间", Utils.format(new Date(), "yyyy-MM-dd HH-mm:ss"));
+				getResponse().success();
 			} while (false);
 		} catch (Exception e) {
 			log.error("Exception detected:" + Utils.getStringFromException(e));
