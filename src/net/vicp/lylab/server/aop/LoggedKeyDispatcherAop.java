@@ -55,7 +55,7 @@ public class LoggedKeyDispatcherAop extends SimpleKeyDispatcherAop {
 				// get action related to key
 				try {
 					action = (BaseAction) CoreDef.config.getConfig("Aop").getNewInstance(key + "Action");
-				} catch (Exception e) { }
+				} catch (Exception e) { e.printStackTrace(); }
 				if (action == null) {
 					response.setCode(0x00003);
 					response.setMessage("Action not found");
