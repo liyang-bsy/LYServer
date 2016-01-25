@@ -40,15 +40,15 @@
 
 #----------------------RPC Server Client
 *RPCaller=net.vicp.lylab.utils.rpc.client.RPCaller
-
-#----------------------Server Aop
-*Aop=net.vicp.lylab.server.aop.LoggedKeyDispatcherAop
-^protocol=&protocol
+^backgroundServer=true
+#----------------------Server Dispatcher
+*dispatcher=net.vicp.lylab.server.dispatcher.LoggedKeyDispatcher
 ^filterChain=&filters
 
 #----------------------Sync Server
 *SyncServer=net.vicp.lylab.server.runtime.SyncServer
-^lyTaskQueue=&LYTaskQueue
+^taskQueue=&LYTaskQueue
+^dispatcher=&dispatcher
 ^port=&port
-^Aop=&Aop
-^longServer=true
+^protocol=&protocol
+^heartBeat=&heartBeat

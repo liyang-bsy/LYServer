@@ -9,6 +9,7 @@ public class ServerRuntime {
 		try {
 			CoreDef.config.reload(CoreDef.rootPath + File.separator + "config" + File.separator + "config.txt");
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.exit(-1);
 		}
 	}
