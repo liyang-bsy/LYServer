@@ -45,7 +45,6 @@
 ^backgroundServer=true
 ^serverName=&server
 ^serverPort=&port
-^procedures=&Aop
 ^protocol=&protocol
 ^heartBeat=&heartBeat
 
