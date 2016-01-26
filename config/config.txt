@@ -22,10 +22,6 @@ port=2011
 
 ipWhiteList=127.0.0.1
 
-#--------------rpc server info
-rpcHost=127.0.0.1
-rpcPort=2001
-
 #--------------external url
 BaiduServerUrl:0=http://www.baidu.com/
 BaiduServerUrl:1=http://www.baidu.com/

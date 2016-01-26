@@ -40,8 +40,14 @@
 
 #----------------------RPC Server Client
 *RPCaller=net.vicp.lylab.utils.rpc.client.RPCaller
+^rpcHost=127.0.0.1
+^rpcPort=2001
 ^backgroundServer=true
+^serverName=&server
+^serverPort=&port
+^procedures=&Aop
 ^protocol=&protocol
+^heartBeat=&heartBeat
 
 #----------------------Server Dispatcher
 *dispatcher=net.vicp.lylab.server.dispatcher.LoggedKeyDispatcher
