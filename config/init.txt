@@ -41,6 +41,8 @@
 #----------------------RPC Server Client
 *RPCaller=net.vicp.lylab.utils.rpc.client.RPCaller
 ^backgroundServer=true
+^protocol=&protocol
+
 #----------------------Server Dispatcher
 *dispatcher=net.vicp.lylab.server.dispatcher.LoggedKeyDispatcher
 ^filterChain=&filters
