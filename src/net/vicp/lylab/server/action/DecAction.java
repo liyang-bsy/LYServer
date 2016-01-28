@@ -17,4 +17,10 @@ public class DecAction extends BaseAction {
 		getResponse().success(); } while (false);
 	}
 
+	@Override
+	public boolean foundBadParameter() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

@@ -19,4 +19,10 @@ public class CheckRuntimeAction extends BaseAction {
 		}
 	}
 
+	@Override
+	public boolean foundBadParameter() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
