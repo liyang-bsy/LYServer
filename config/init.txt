@@ -52,7 +52,7 @@
 #----------------------Server Dispatcher
 *dispatcher=net.vicp.lylab.server.dispatcher.LoggedKeyDispatcher
 ^filterChain=&filters
-^actions=&Aop
+^actions=&Actions
 
 #----------------------Sync Server
 *SyncServer=net.vicp.lylab.server.runtime.SyncServer

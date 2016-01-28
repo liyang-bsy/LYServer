@@ -2,7 +2,7 @@
 !debug=0
 server=LYServer
 
-$Aop=action.txt
+$Actions=action.txt
 
 $Singleton=init.txt
 
@@ -11,17 +11,9 @@ $Singleton=init.txt
 
 *protocol=&LYLabProtocol
 *heartBeat=net.vicp.lylab.core.model.SimpleHeartBeat
-
-#[]protocols=&LYLabProtocol
-#*ProtocolUtils=net.vicp.lylab.utils.internet.protocol.ProtocolUtils
-#^rawProtocols=&protocols
 #---------------------protocol defines---------------------
 
 #--------------server port
 port=2011
 
 ipWhiteList=127.0.0.1
-
-#--------------external url
-BaiduServerUrl:0=http://www.baidu.com/
-BaiduServerUrl:1=http://www.baidu.com/
