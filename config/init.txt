@@ -40,7 +40,7 @@
 []filters=&filter1
 
 #----------------------RPC Server Client
-*RPCaller=net.vicp.lylab.utils.rpc.client.RPCaller
+*RPCaller=net.vicp.lylab.utils.client.RPCClient
 ^rpcHost=127.0.0.1
 ^rpcPort=2001
 ^backgroundServer=true
