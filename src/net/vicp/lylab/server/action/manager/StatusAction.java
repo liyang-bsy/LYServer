@@ -5,7 +5,7 @@ import java.util.Date;
 import net.vicp.lylab.core.BaseAction;
 import net.vicp.lylab.utils.Utils;
 
-public class CheckRuntimeAction extends BaseAction {
+public class StatusAction extends BaseAction {
 
 	@Override
 	public void exec() {
